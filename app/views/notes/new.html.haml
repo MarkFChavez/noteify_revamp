@@ -1,6 +1,10 @@
 .row
   .col-lg-12
     = form_for @note do |f|
+      - if @note.errors.any?
+        .alert
+          = @note.errors.full_messages.to_a.to_sentence
+
       %div
         = f.label :title
         = f.text_field :title, placeholder: "Title"

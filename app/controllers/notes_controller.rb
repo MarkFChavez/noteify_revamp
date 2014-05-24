@@ -9,7 +9,7 @@ class NotesController < ApplicationController
     if @note.save
       redirect_to root_path
     else
-      # do nothing;
+      render :new
     end
   end
 

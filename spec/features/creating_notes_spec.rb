@@ -8,16 +8,25 @@ feature "Creating a note" do
       sign_in_as user
     end
 
-    it "shows it on the dashboard page" do
-      click_on "New note"
+    describe "with valid note" do
+      it "shows it on the dashboard page" do
+        create_a_note "Awesome work", "this is the content"
 
-      fill_in "Title", with: "Awesome work"
-      fill_in "Content", with: "this is the content"
-      click_on "Create"
+        within "#notes" do
+          expect(page).to have_css ".note-title", text: "Awesome work"
+          expect(page).to have_css ".note-content", text: "this is the content"
+        end
 
-      within "#notes" do
-        expect(page).to have_css ".note-title", text: "Awesome work"
-        expect(page).to have_css ".note-content", text: "this is the content"
+        expect(current_path).to eq root_path
+      end
+    end
+
+    describe "invalid note" do
+      it "shows an error page on the dashboard page" do
+        create_a_note "", ""
+
+        expect(page).to have_content "Title can't be blank"
+        expect(page).to have_content "Content can't be blank"
       end
     end
   end
