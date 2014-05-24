@@ -27,9 +27,21 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'spring-commands-rspec', group: :development
 
+gem 'bootstrap-sass'
+gem 'devise'
+
+gem 'haml'
+gem 'haml-rails'
+
 group :development, :test do
   gem 'rspec-rails'
+  gem 'capybara'
   gem 'database_cleaner'
+  gem 'factory_girl_rails'
+end
+
+group :test do
+  gem 'faker', github: "stympy/faker"
 end
 
 # Use ActiveModel has_secure_password
