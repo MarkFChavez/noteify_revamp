@@ -1,0 +1,12 @@
+.row
+  .col-lg-12
+    = form_for @note do |f|
+      %div
+        = f.label :title
+        = f.text_field :title, placeholder: "Title"
+
+      %div
+        = f.label :content
+        = f.text_area :content, placeholder: "Content"
+
+      = f.submit "Create", class: "btn btn-primary btn-lg"

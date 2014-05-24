@@ -38,6 +38,9 @@ group :development, :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
+
+  gem 'minitest'        # to prevent the warnings
+  gem 'shoulda-matchers'
 end
 
 group :test do
