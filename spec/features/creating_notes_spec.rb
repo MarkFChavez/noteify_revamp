@@ -22,7 +22,7 @@ feature "Creating a note" do
     end
 
     describe "invalid note" do
-      it "shows an error page on the dashboard page" do
+      it "shows an error on the form page" do
         create_a_note "", ""
 
         expect(page).to have_content "Title can't be blank"
