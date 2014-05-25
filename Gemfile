@@ -33,6 +33,8 @@ gem 'devise'
 gem 'haml'
 gem 'haml-rails'
 
+gem 'paranoia', '~> 2.0'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
@@ -45,6 +47,7 @@ end
 
 group :test do
   gem 'faker', github: "stympy/faker"
+  gem 'launchy'
 end
 
 # Use ActiveModel has_secure_password

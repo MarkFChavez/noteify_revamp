@@ -6,6 +6,7 @@
   .col-lg-12
     %p.whoami= current_user.email
     = link_to "New note", new_note_path
+    = link_to "Archives", archives_path 
     = link_to "Sign out", destroy_user_session_path, method: :delete
 
 

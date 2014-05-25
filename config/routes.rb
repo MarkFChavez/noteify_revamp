@@ -3,5 +3,6 @@ Rails.application.routes.draw do
 
   root "home#index"
 
-  resources :notes, only: [:new, :create]
+  resources :notes, only: [:new, :create, :destroy]
+  resources :archives, only: [:index]
 end

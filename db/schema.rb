@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140524162224) do
+ActiveRecord::Schema.define(version: 20140525101602) do
 
   create_table "notes", force: true do |t|
     t.string   "title"
@@ -19,8 +19,10 @@ ActiveRecord::Schema.define(version: 20140524162224) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "deleted_at"
   end
 
+  add_index "notes", ["deleted_at"], name: "index_notes_on_deleted_at"
   add_index "notes", ["user_id"], name: "index_notes_on_user_id"
 
   create_table "users", force: true do |t|
