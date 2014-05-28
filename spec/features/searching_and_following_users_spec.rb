@@ -48,6 +48,13 @@ feature "Searching and following users" do
           expect(page).to have_content "Following"
         end
       end
+
+      it "prohibits following of currently logged in user" do
+        within "#user_#{user1.id}" do
+          expect(page).to_not have_content "Follow"
+          expect(page).to_not have_content "Following"
+        end
+      end
     end
   end
 end

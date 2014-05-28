@@ -1,7 +1,4 @@
 = div_for user do
   %p= user.email
+  = follow_tag user
 
-  - if current_user.follows? user
-    = link_to "Following", "#", class: "disabled", disabled: "disabled"
-  - else
-    = link_to "Follow", relationships_path(user: user), method: :post

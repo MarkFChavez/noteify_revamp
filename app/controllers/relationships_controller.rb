@@ -9,6 +9,6 @@ class RelationshipsController < ApplicationController
   private
 
   def follow_user user
-    current_user.follow! user
+    current_user.follow! user if current_user != user
   end
 end

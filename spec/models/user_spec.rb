@@ -16,6 +16,11 @@ describe User do
       user.follow! user2
       expect(user2.followers).to include user
     end
+
+    it "#follows?" do
+      user.follow! user2
+      expect(user.follows?(user2)).to be_true
+    end
   end
 
 end
