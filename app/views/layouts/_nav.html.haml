@@ -1,0 +1,28 @@
+%nav.navbar.navbar-inverse.navbar-static-top{ role: "navigation" }
+  .container-fluid
+    .navbar-header
+      %button.navbar-toggle{ type: "button", data: { toggle: "collapse", target: "#bs-navbar-collapse-1" } }
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+
+      = link_to t("noteify.dashboard"), root_path, class: "navbar-brand header"
+
+    - if user_signed_in?
+      .collapse.navbar-collapse#bs-navbar-collapse-1
+        %ul.nav.navbar-nav
+          %li.active
+            = link_to current_user.email, "#", class: "whoami"
+          %li
+            = link_to "New note", new_note_path
+          %li
+            = link_to "Archives", archives_path
+
+        %ul.nav.navbar-nav.navbar-right
+          %li
+            = link_to "Sign out", destroy_user_session_path, method: :delete
+
+        = form_tag users_path, method: :get, class: "navbar-form navbar-right", role: "search", id: "search" do
+          = text_field_tag "user_name", nil, class: "form-control"
+          = submit_tag "Search", class: "btn btn-default"

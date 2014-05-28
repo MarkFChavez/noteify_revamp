@@ -5,4 +5,5 @@ Rails.application.routes.draw do
 
   resources :notes, only: [:new, :create, :destroy]
   resources :archives, only: [:index]
+  resources :users, only: [:index]
 end
